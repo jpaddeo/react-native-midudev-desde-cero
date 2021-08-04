@@ -5,8 +5,9 @@ import { ApolloProvider } from '@apollo/client';
 
 import Main from './src/components/Main';
 import createApolloClient from './src/utils/apolloClient';
+import authStorage from './src/utils/authStorage';
 
-const apolloClient = createApolloClient();
+const apolloClient = createApolloClient(authStorage);
 
 export default function App() {
   return (

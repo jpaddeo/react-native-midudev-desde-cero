@@ -4,8 +4,11 @@ import Constants from 'expo-constants';
 
 import AppBarTab from './AppBarTab';
 import theme from '../theme';
+import useAuthorized from '../hooks/useAuthorized';
 
 const AppBar = () => {
+  const { isAuthorized } = useAuthorized();
+
   return (
     <View style={styles.container}>
       <ScrollView
@@ -14,7 +17,11 @@ const AppBar = () => {
         style={styles.scroll}
       >
         <AppBarTab to='/'>Repositories</AppBarTab>
-        <AppBarTab to='/signin'>Sign In</AppBarTab>
+        {isAuthorized ? (
+          <AppBarTab to='/signout'>Sign Out</AppBarTab>
+        ) : (
+          <AppBarTab to='/signin'>Sign In</AppBarTab>
+        )}
       </ScrollView>
     </View>
   );
