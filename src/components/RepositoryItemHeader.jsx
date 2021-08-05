@@ -11,8 +11,12 @@ const RepositoryItemHeader = (props) => {
         <Image style={styles.image} source={{ uri: props.ownerAvatarUrl }} />
       </View>
       <View style={styles.description}>
-        <StyledText fontWeight='bold'>{props.fullName}</StyledText>
-        <StyledText color='secondary'>{props.description}</StyledText>
+        <StyledText testID='RepositoryItemHeaderName' fontWeight='bold'>
+          {props.fullName}
+        </StyledText>
+        <StyledText testID='RepositoryItemHeaderDescription' color='secondary'>
+          {props.description}
+        </StyledText>
         <StyledText style={styles.language}>{props.language}</StyledText>
       </View>
     </View>
